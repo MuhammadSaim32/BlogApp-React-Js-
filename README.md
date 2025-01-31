@@ -1,30 +1,44 @@
 # Blog Application
 
-This is a full-stack blog application with a backend powered by Appwrite and a frontend built with React.
+This is a full-stack blog application created for learning purposes. The backend is powered by Appwrite, and the frontend is built with React. This application includes features for creating, updating, and deleting blog posts, as well as user management and routing.
 
 ## Overview
 
-The application allows users to create, read, update, and delete blog posts. The backend is managed by Appwrite, which provides a secure and scalable environment for managing user authentication, database operations, and file storage. The frontend is built using React, providing a responsive and interactive user interface.
+The Blog Application allows users to:
 
-## Features
-
-- User Authentication
-- Create, Read, Update, and Delete (CRUD) operations for blog posts
-- Rich Text Editor for creating and editing posts
-- Responsive design
+- Create, read, update, and delete blog posts.
+- Manage user accounts, including creation and deletion.
+- Handle routing using React Router.
+- Manage state using Redux.
+- Use TinyMCE for text editing.
+- Manage forms using React Hook Form.
+- Handle authorization to control access to different pages based on user state.
 
 ## Technologies Used
 
 ### Backend
 
-- **Appwrite**: A self-hosted backend server providing authentication, database, storage, and more.
+- **Appwrite**: A cloud backend service providing authentication, database, storage, and more.
 
 ### Frontend
 
 - **React**: A JavaScript library for building user interfaces.
+- **React Router**: A library for handling routing in React applications.
+- **Redux**: A state management library for JavaScript applications.
 - **react-hook-form**: A library for managing form state and validation in React.
 - **@tinymce/tinymce-react**: A React integration for the TinyMCE rich text editor.
 - **Tailwind CSS**: A utility-first CSS framework for styling.
+
+## Features
+
+- **CRUD Operations**: Create, read, update, and delete blog posts.
+- **User Management**: Create and delete user accounts.
+- **Routing**: Handle routing using React Router.
+- **State Management**: Manage application state using Redux.
+- **Rich Text Editing**: Use TinyMCE for rich text editing in blog posts.
+- **Form Management**: Manage forms using React Hook Form.
+- **Authorization**: Control access to different pages based on user state.
+- **Post Management**: Users can edit and delete their own posts.
 
 ## Installation
 
