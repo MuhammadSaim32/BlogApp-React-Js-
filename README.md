@@ -23,7 +23,7 @@ The Blog Application allows users to:
 - **Appwrite**: A cloud backend service providing authentication, database, storage, and more.
 
 ### Frontend
-
+- **Markup and design**: generated with the help of AI tools.
 - **React**: A JavaScript library for building user interfaces.
 - **React Router**: A library for handling routing in React applications.
 - **Redux**: A state management library for JavaScript applications.
