@@ -70,7 +70,7 @@ const Header = () => {
     {
       name: "logout",
       path: "",
-      AuthStatus: !AuthStatus,
+      AuthStatus: AuthStatus,
     },
   ];
 
