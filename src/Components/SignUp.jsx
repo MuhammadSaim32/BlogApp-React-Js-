@@ -18,7 +18,7 @@ function SignUp() {
 
   return (
     <div className="flex items-center justify-center h-screen w-full bg-gray-800">
-      <div className="max-w-md w-full mx-auto p-6 bg-white rounded-lg shadow-md">
+      <div className=" w-[80%] max-w-[40%] min-w-[300px] mx-auto p-6 bg-white rounded-lg shadow-md">
         <h2 className="text-2xl font-bold text-center mb-6">Sign Up</h2>
 
         <form onSubmit={handleSubmit(submit)}>
