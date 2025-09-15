@@ -12,6 +12,7 @@ const Header = () => {
   const [DropDownNav, setDropdownNav] = useState(false);
   const AuthStatus = useSelector((state) => state.Auth.Status);
   function LogoutBtn() {
+    console.log("ok");
     Auth.Logout().then(() => {
       Dispatch(Logout());
       Navigate("/");
@@ -26,17 +27,16 @@ const Header = () => {
     });
   }, []);
 
-  function dropdown(e) {
-    e.stopPropagation();
-
+  function dropdown() {
     setDropdownNav(!DropDownNav);
   }
 
   function removeDropDownWhenclickonlink(item) {
+    if (item == "logout") {
+      LogoutBtn();
+    }
+
     if (window.innerWidth < 768) {
-      if (item.name == "logout") {
-        LogoutBtn();
-      }
       setDropdownNav(!DropDownNav);
     }
   }
@@ -75,7 +75,7 @@ const Header = () => {
   ];
 
   return (
-    <header className="bg-gray-800 text-gray-300 ">
+    <header className="bg-gray-800 text-gray-300 w-full">
       <div className="container mx-auto flex items-center justify-between px-4  py-6 relative">
         <Link to="/" className="text-[1.4rem] font-bold">
           BlogApp
@@ -115,7 +115,7 @@ const Header = () => {
                   to={`${item.path}`}
                   className="bg-red-500 text-white px-4 py-2 rounded-lg hover:bg-red-600 transition duration-300 mb-3 focus:outline-none focus:ring-2 focus:ring-red-400 focus:ring-opacity-50"
                   key={item.name}
-                  onClick={(item) => removeDropDownWhenclickonlink(item)}
+                  onClick={() => removeDropDownWhenclickonlink(item.name)}
                 >
                   {item.name}
                 </NavLink>

@@ -8,6 +8,7 @@ import EditPost from "./EditPost";
 import Card from "./Card";
 import AllPost from "./AllPost";
 import AuthLayout from "./AuthLayout";
+import Loader from "./Loader";
 export {
   SignUp,
   Container,
@@ -18,4 +19,6 @@ export {
   EditPost,
   Card,
   AllPost,
+  Loader,
+  AuthLayout,
 };

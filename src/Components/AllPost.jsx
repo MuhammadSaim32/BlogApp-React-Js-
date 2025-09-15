@@ -8,11 +8,35 @@ function AllPost() {
 
   useEffect(() => {
     Service.GetPosts().then((data) => {
-      SetLoading(false);
       SetPost(data.documents);
+      SetLoading(false);
     });
   }, []);
-  if (post?.length === 0) {
+
+  if (Loading) {
+    return (
+      <div className="flex items-center justify-center h-screen bg-gray-800">
+        <div className="flex flex-col items-center space-y-4">
+          <div className="w-12 h-12 border-4 border-gray-300 border-t-blue-500 rounded-full animate-spin"></div>
+
+          <p className="text-white text-lg font-medium">Loading...</p>
+        </div>
+      </div>
+    );
+  } else if (post?.length > 0) {
+    return (
+      <div className="flex flex-wrap gap-4 h-screen">
+        {post &&
+          post.map((data) => {
+            return (
+              <Link to={`/post/${data.$id}`} key={data.$id}>
+                <Card post={{ ...data }} />
+              </Link>
+            );
+          })}
+      </div>
+    );
+  } else {
     return (
       <div className="flex items-center justify-center h-screen bg-gray-800">
         <div className="text-center">
@@ -26,27 +50,6 @@ function AllPost() {
       </div>
     );
   }
-
-  return !Loading ? (
-    <div className="flex flex-wrap gap-4 h-screen">
-      {post &&
-        post.map((data) => {
-          return (
-            <Link to={`/post/${data.$id}`} key={data.$id}>
-              <Card post={{ ...data }} />
-            </Link>
-          );
-        })}
-    </div>
-  ) : (
-    <div className="flex items-center justify-center h-screen bg-gray-800">
-      <div className="flex flex-col items-center space-y-4">
-        <div className="w-12 h-12 border-4 border-gray-300 border-t-blue-500 rounded-full animate-spin"></div>
-
-        <p className="text-white text-lg font-medium">Loading...</p>
-      </div>
-    </div>
-  );
 }
 
 export default AllPost;

@@ -1,9 +1,10 @@
-import React, { useEffect, useCallback, useState } from "react";
-import Rte from "./Rte";
+import React, { useEffect, useCallback, useState, Suspense } from "react";
 import { useForm } from "react-hook-form";
 import Service from "../Appwrite/Service";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
+import Loader from "./index.js";
+const Rte = React.lazy(() => import("./Rte.jsx"));
 function AddPost({ post }) {
   const {
     register,
@@ -143,7 +144,7 @@ function AddPost({ post }) {
         </div>
       </div>
 
-      <div className="flex flex-col mt-6">
+      <Suspense fallback={Loader} className="flex flex-col mt-6">
         <Rte
           name="Content"
           control={control}
@@ -153,7 +154,7 @@ function AddPost({ post }) {
               : "<p>This is the initial content of the editor.</p>"
           }
         />
-      </div>
+      </Suspense>
 
       <div className="flex justify-center mt-6">
         <button
