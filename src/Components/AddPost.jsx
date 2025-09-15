@@ -3,7 +3,7 @@ import { useForm } from "react-hook-form";
 import Service from "../Appwrite/Service";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import Loader from "./index.js";
+import { Loader } from "./index.js";
 const Rte = React.lazy(() => import("./Rte.jsx"));
 function AddPost({ post }) {
   const {
