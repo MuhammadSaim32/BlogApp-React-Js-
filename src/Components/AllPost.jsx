@@ -25,15 +25,21 @@ function AllPost() {
     );
   } else if (post?.length > 0) {
     return (
-      <div className="flex flex-wrap gap-4 h-screen">
-        {post &&
-          post.map((data) => {
-            return (
-              <Link to={`/post/${data.$id}`} key={data.$id}>
-                <Card post={{ ...data }} />
-              </Link>
-            );
-          })}
+      <div className="h-auto sx:h-screen bg-gray-800">
+        <div className="flex justify-around p-4  gap-4 flex-wrap  h-auto ">
+          {post &&
+            post.map((data) => {
+              return (
+                <Link
+                  to={`/post/${data.$id}`}
+                  key={data.$id}
+                  className="bg-white shadow-md rounded-lg overflow-hidden block w-full h-25  sx:w-40   xs:w-60 xs:max-w-[270px]  xs:min-w-[200px]"
+                >
+                  <Card post={{ ...data }} />
+                </Link>
+              );
+            })}
+        </div>
       </div>
     );
   } else {

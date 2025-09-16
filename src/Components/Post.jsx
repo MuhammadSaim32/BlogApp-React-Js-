@@ -38,19 +38,15 @@ function Post() {
   }
 
   return !Loading ? (
-    <div>
-      <div className="w-full h-96">
-        <img
-          src={Service.GetFilePreview(Post.Image_Id)}
-          alt={Post.Title}
-          className="h-96 w-full object-cover"
-        />
-      </div>
-
+    <div className="">
       <p className="text-white text-center text-3xl py-4">{Post.Title}</p>
-
+      <img
+        src={Service.GetFilePreview(Post.Image_Id)}
+        alt={Post.Title}
+        className="rounded-lg object-cover mb-4 m-auto max-h-[30%] px-4 w-[80%] block"
+      />
       <div>
-        <div className="text-white w-full h-auto">{parse(Post.Content)}</div>
+        <div className="text-white w-full p-6">{parse(Post.Content)}</div>
       </div>
 
       <div>

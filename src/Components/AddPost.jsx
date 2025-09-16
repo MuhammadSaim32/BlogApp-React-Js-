@@ -76,13 +76,13 @@ function AddPost({ post }) {
   return (
     <form
       onSubmit={handleSubmit(submit)}
-      className="w-full p-8 bg-gray-100 font-sans shadow-lg"
+      className="w-[90%]  m-auto rounded-lg bg-gray-100 font-sans shadow-lg"
     >
-      <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-8">
         <div className="flex flex-col">
           <label
             htmlFor="Title"
-            className="text-lg font-semibold text-gray-800"
+            className="text-lg font-semibold p-2 text-gray-800"
           >
             Title
           </label>
@@ -95,7 +95,10 @@ function AddPost({ post }) {
         </div>
 
         <div className="flex flex-col">
-          <label htmlFor="Slug" className="text-lg font-semibold text-gray-800">
+          <label
+            htmlFor="Slug"
+            className="text-lg font-semibold text-gray-800 p-2"
+          >
             Slug
           </label>
           <input
@@ -114,7 +117,7 @@ function AddPost({ post }) {
         <div className="flex flex-col">
           <label
             htmlFor="Status"
-            className="text-lg font-semibold text-gray-800"
+            className="text-lg font-semibold p-2 text-gray-800"
           >
             Post Status
           </label>
@@ -131,7 +134,7 @@ function AddPost({ post }) {
         <div className="flex flex-col">
           <label
             htmlFor="Image"
-            className="text-lg font-semibold text-gray-800"
+            className="text-lg font-semibold p-1 text-gray-800"
           >
             Select Image
           </label>

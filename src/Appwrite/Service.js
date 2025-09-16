@@ -26,7 +26,7 @@ class AppwriteService {
           Image_Id,
           User_Id,
           Status,
-        }
+        },
       );
     } catch (error) {
       console.log(error);
@@ -38,7 +38,7 @@ class AppwriteService {
       return await this.Database.listDocuments(
         Conf.Appwrite_Database_Id,
         Conf.Appwrite_Collection_Id,
-        [Query.equal("Status", "Active")]
+        [Query.equal("Status", "Active")],
       );
     } catch (error) {
       console.log(error);
@@ -50,7 +50,7 @@ class AppwriteService {
       return await this.Database.getDocument(
         Conf.Appwrite_Database_Id,
         Conf.Appwrite_Collection_Id,
-        Post_Id
+        Post_Id,
       );
     } catch (error) {
       console.log(error);
@@ -62,7 +62,7 @@ class AppwriteService {
       return await this.Database.deleteDocument(
         Conf.Appwrite_Database_Id,
         Conf.Appwrite_Collection_Id,
-        Post_Id
+        Post_Id,
       );
     } catch (error) {
       console.log(error);
@@ -74,7 +74,7 @@ class AppwriteService {
       return this.Storage.createFile(
         Conf.Appwrite_Buket_Id,
         ID.unique(),
-        Image
+        Image,
       );
     } catch (error) {
       console.log(error);
@@ -102,7 +102,7 @@ class AppwriteService {
           Image_Id,
           User_Id,
           Status,
-        }
+        },
       );
     } catch (error) {
       console.log(error);
@@ -111,7 +111,7 @@ class AppwriteService {
 
   GetFilePreview(File_Id) {
     try {
-      const data = this.Storage.getFilePreview(Conf.Appwrite_Buket_Id, File_Id);
+      const data = this.Storage.getFileView(Conf.Appwrite_Buket_Id, File_Id);
       return data;
     } catch (error) {
       console.log(error);
