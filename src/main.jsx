@@ -2,7 +2,8 @@ import { createRoot } from "react-dom/client";
 import "./index.css";
 import App from "./App.jsx";
 import { Provider } from "react-redux";
-import { store } from "./Store/Store.js";
+import { store, persistor } from "./Store/Store.js";
+import { PersistGate } from "redux-persist/integration/react";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import SignUpPage from "./Pages/SignUpPage.jsx";
 import LoginPage from "./Pages/LoginPage.jsx";
@@ -80,6 +81,8 @@ const route = createBrowserRouter([
 
 createRoot(document.getElementById("root")).render(
   <Provider store={store}>
-    <RouterProvider router={route} />
-  </Provider>
+    <PersistGate loading={null} persistor={persistor}>
+      <RouterProvider router={route} />
+    </PersistGate>
+  </Provider>,
 );

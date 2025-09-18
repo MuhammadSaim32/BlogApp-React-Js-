@@ -4,7 +4,7 @@ import Service from "../Appwrite/Service";
 import ReactMarkdown from "react-markdown";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-import "github-markdown-css/github-markdown.css";
+import "github-markdown-css/github-markdown-dark.css";
 import remarkGfm from "remark-gfm";
 
 function Post() {
