@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 function AuthLayout({ authentication = false, children }) {
-  const UserStatus = useSelector((state) => state.Auth.Status);
+  const UserStatus = useSelector((state) => state.Status);
   const Navigate = useNavigate();
   useEffect(() => {
     if (authentication && UserStatus == false) {

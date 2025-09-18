@@ -4,7 +4,7 @@ import Service from "../Appwrite/Service";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { Loader } from "./index.js";
-const Rte = React.lazy(() => import("./Rte.jsx"));
+import Editor from "./Mark.jsx";
 function AddPost({ post }) {
   const {
     register,
@@ -23,10 +23,15 @@ function AddPost({ post }) {
     },
   });
 
+  const [content, setContent] = useState("");
+  console.log(content);
+
   const [Image_Id, setImage_Id] = useState(post?.Image_Id ? false : true);
-  const UserData = useSelector((state) => state.Auth.UserData);
+  const UserData = useSelector((state) => state.UserData);
   const Navigate = useNavigate();
   async function submit(data) {
+    data.Content = content;
+    console.log(data);
     if (post) {
       if (data.Image_Id[0]) {
         const Image = await Service.UploadImage(data.Image_Id[0]);
@@ -147,17 +152,7 @@ function AddPost({ post }) {
         </div>
       </div>
 
-      <Suspense fallback={Loader} className="flex flex-col mt-6">
-        <Rte
-          name="Content"
-          control={control}
-          intialValue={
-            post?.Content
-              ? post.Content
-              : "<p>This is the initial content of the editor.</p>"
-          }
-        />
-      </Suspense>
+      <Editor content={content} setContent={setContent} />
 
       <div className="flex justify-center mt-6">
         <button

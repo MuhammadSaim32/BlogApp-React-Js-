@@ -10,9 +10,9 @@ const Header = () => {
   const Navigate = useNavigate();
   const Dispatch = useDispatch();
   const [DropDownNav, setDropdownNav] = useState(false);
-  const AuthStatus = useSelector((state) => state.Auth.Status);
+  const AuthStatus = useSelector((state) => state.Status);
+
   function LogoutBtn() {
-    console.log("ok");
     Auth.Logout().then(() => {
       Dispatch(Logout());
       Navigate("/");

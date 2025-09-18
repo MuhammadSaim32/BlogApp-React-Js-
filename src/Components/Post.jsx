@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import Service from "../Appwrite/Service";
-import parse from "html-react-parser";
+import ReactMarkdown from "react-markdown";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
+import "github-markdown-css/github-markdown.css";
+import remarkGfm from "remark-gfm";
 
 function Post() {
   const { Post_Id } = useParams();
@@ -12,7 +14,7 @@ function Post() {
   const [Loading, SetLoading] = useState(true);
 
   const Navigate = useNavigate();
-  const UserData = useSelector((state) => state.Auth.UserData);
+  const UserData = useSelector((state) => state.UserData);
 
   useEffect(() => {
     if (Post_Id) {
@@ -39,14 +41,18 @@ function Post() {
 
   return !Loading ? (
     <div className="">
-      <p className="text-white text-center text-3xl py-4">{Post.Title}</p>
+      <p className="text-white text-center text-3xl py-4 ">{Post.Title}</p>
       <img
         src={Service.GetFilePreview(Post.Image_Id)}
         alt={Post.Title}
         className="rounded-lg object-cover mb-4 m-auto max-h-[30%] px-4 w-[80%] block"
       />
-      <div>
-        <div className="text-white w-full p-6">{parse(Post.Content)}</div>
+      <div className="w-[80%] m-auto ">
+        <div className="markdown-body" style={{ padding: "2rem" }}>
+          <ReactMarkdown remarkPlugins={[remarkGfm]}>
+            {Post.Content}
+          </ReactMarkdown>
+        </div>
       </div>
 
       <div>
