@@ -25,8 +25,8 @@ function AllPost() {
     );
   } else if (post?.length > 0) {
     return (
-      <div className="bg-gray-800 h-screen max-h-auto">
-        <div className="flex justify-around p-4  gap-4 flex-wrap   max-h-auto ">
+      <div className="bg-gray-800  min-h-screen   max-h-auto">
+        <div className="flex justify-around p-4  gap-4 flex-wrap h-full ">
           {post &&
             post.map((data) => {
               return (
