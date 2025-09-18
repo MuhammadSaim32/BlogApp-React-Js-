@@ -3,7 +3,6 @@ import { useForm } from "react-hook-form";
 import Service from "../Appwrite/Service";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { Loader } from "./index.js";
 import Editor from "./Mark.jsx";
 function AddPost({ post }) {
   const {
@@ -19,12 +18,10 @@ function AddPost({ post }) {
       Title: post?.Title || "",
       Slug: post?.Slug || "",
       Status: post?.Status || "active",
-      Content: post?.Content || "",
     },
   });
 
   const [content, setContent] = useState("");
-  console.log(content);
 
   const [Image_Id, setImage_Id] = useState(post?.Image_Id ? false : true);
   const UserData = useSelector((state) => state.UserData);
@@ -152,7 +149,11 @@ function AddPost({ post }) {
         </div>
       </div>
 
-      <Editor content={content} setContent={setContent} />
+      <Editor
+        intialValue={post?.Content || "write down here..."}
+        content={content}
+        setContent={setContent}
+      />
 
       <div className="flex justify-center mt-6">
         <button
