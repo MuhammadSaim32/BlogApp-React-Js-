@@ -55,16 +55,16 @@ function Post() {
         </div>
       </div>
 
-      <div>
+      <div className="w-[80%] m-auto hover:cursor-pointer">
         {Owner && (
-          <div className="bg-red-500 p-2 rounded-md text-white  mt-4 text-center  w-32  h-auto    hover:bg-red-600  right-16">
+          <div className="bg-red-500 p-2 rounded-md text-white   mt-4 text-center  w-32  h-auto    hover:bg-red-600">
             <Link to="/EditPost" state={{ Post }}>
               EditPost
             </Link>
           </div>
         )}
       </div>
-      <div>
+      <div className="w-[80%] m-auto hover:cursor-pointer">
         {Owner && (
           <button
             className="bg-red-500 p-2 rounded-md text-white  mt-4  w-32  h-auto    hover:bg-red-600  right-16"

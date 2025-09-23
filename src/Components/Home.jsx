@@ -1,6 +1,10 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { motion } from "motion/react";
+
 function Home() {
+  const MotionLink = motion(Link);
+
   return (
     <div className="flex flex-col items-center justify-center h-screen  w-full bg-gray-800">
       <div className="text-center w-[85%]">
@@ -10,12 +14,13 @@ function Home() {
         <p className="text-[clamp(1.3rem,2vw,2rem)] text-gray-300 mb-8">
           Discover amazing content and stay updated with the latest posts.
         </p>
-        <Link
+        <MotionLink
+          whileHover={{ scale: 1.1 }}
           to={"/AllPost"}
-          className="px-6 py-2 bg-blue-500 text-white rounded-lg shadow-md hover:bg-blue-600"
+          className=" inline-block px-6 py-2 bg-blue-500 text-white rounded-lg"
         >
           Explore Posts
-        </Link>
+        </MotionLink>
       </div>
     </div>
   );

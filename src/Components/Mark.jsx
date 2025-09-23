@@ -16,6 +16,7 @@ export default function Editor({ intialValue, content, setContent }) {
 
   return (
     <MdEditor
+      className="mt-36"
       value={content}
       style={{ height: "500px" }}
       renderHTML={(text) => mdParser.render(text)}
