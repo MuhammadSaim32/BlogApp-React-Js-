@@ -6,7 +6,7 @@ function Footer() {
   return (
     <footer className="flex items-center justify-center p-4 bg-gray-800 w-full h-20">
       <a
-        href="https://github.com/MuhammadSaim32"
+        href="https://github.com"
         className="flex items-center text-[clamp(0.8rem,2.5vw,1.3rem)] text-gray-300 hover:text-white"
         target="_blank"
       >
